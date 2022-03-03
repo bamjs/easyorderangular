@@ -1,0 +1,30 @@
+﻿body {
+
+}
+.button {
+    border-radius: 10%;
+    text-align: center;
+    align-items: center;
+    color: white;
+    background-color: #33ccff;
+    font-weight: 200;
+    font-size: large;
+    border-radius: 20px;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    vertical-align: middle;
+    text-justify: distribute;
+    color: white;
+    background-color: #33ccff;
+    border: 2px solid black;
+    font-weight: 200;
+    font-size: large;
+    height: 40px;
+    width: 100px;
+}
+#DataListProducts {
+    display: flex;
+    box-shadow: rgba(0,0,0,0.3) 5px 10px;
+    border-radius: 10%;
+}

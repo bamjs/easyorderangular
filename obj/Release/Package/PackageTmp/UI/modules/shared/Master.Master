@@ -1,0 +1,89 @@
+﻿    <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="webapp.UI.modules.shared.Master" %>
+<link href="StyleSheet.css" rel="stylesheet" />
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table style="width: 100%;" runat="server" id="masterTable">
+            <tr>
+                <td colspan="3" style="background-color: grey; font-size: larger; height: 100px; font-weight: 100;">
+                    <asp:HiddenField ID="hdnfirstname" runat="server" />
+                    <div style="height: 100px; float: left; width: 150px;">
+                        <asp:Image ID="imgLogo" ImageUrl="/UploadedFiles/UI/infor.png" runat="server" Height="100" Width="100%" />
+                    </div>
+                    <div style="vertical-align: central; width: 60%; float: left; margin-top: 40px; margin-left: 40px">
+                        <asp:Menu ID="navbar" runat="server" Orientation="Horizontal" ForeColor="White" StaticHoverStyle-BackColor="#ccffff" StaticHoverStyle-ForeColor="#ff3300" ItemWrap="false" StaticMenuItemStyle-HorizontalPadding="20px" Font-Bold="true">
+                            <Items>
+                                <asp:MenuItem Text="Users" Value="Users" NavigateUrl="~/UI/modules/user/UserList.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Create User" Value="CreateUser" NavigateUrl="~/UI/modules/user/UserRegistration.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Products" Value="Products" NavigateUrl="~/UI/modules/Products/ProductList.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Create Product" Value="CreateProduct" NavigateUrl="~/UI/modules/Products/CreateProduct.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Orders" Value="Orders" NavigateUrl="~/UI/modules/Orders/Orders.aspx"></asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                    </div>
+                    <div style="float: right; width: 35%; text-align-last: right; vertical-align: central; margin-top: -20px;">
+                        
+                        <asp:LinkButton ID="lbtFirstName" runat="server"  Font-Underline="false" Text="" Font-Bold="true" ForeColor="white" OnClick="lbtFirstName_Click" ></asp:LinkButton>
+                        <div style="float: left;">&nbsp;
+                            <asp:ImageButton ID="imgmenuBag" ImageUrl="/UploadedFiles/UI/bag.png" Height="30px" Width="30px" OnClick="imgmenuBag_Click" runat="server" />
+                        </div>
+                        <div style="float: left; margin-top: -7px; margin-left: -5px; color: yellow;">
+                            <asp:Label ID="lblProductCount" runat="server" Visible="true" Font-Size="15px"></asp:Label>
+                        </div>
+                         <div style="float: left;">&nbsp;&nbsp;
+                            <asp:ImageButton ID="imageWishlist" ImageUrl="/UploadedFiles/UI/wishlist.png"  Height="30px" Width="30px" OnClick="imageWishlist_Click" runat="server" />
+                        </div>
+                        <div style="float: left; margin-top: -7px;  color: yellow;">
+                            <asp:Label ID="lblWishListCount" runat="server" Visible="true" Font-Size="15px"></asp:Label>
+                        </div> &nbsp;&nbsp;
+                        <asp:LinkButton ID="lbtSignin" runat="server" Font-Underline="false" ForeColor="white" BackColor="" Width="" CausesValidation="false" OnClick="lbtSignin_Click">
+                        
+                        </asp:LinkButton> 
+                        <asp:Image ID="ImageSign" runat="server" ImageAlign="Top" Height="25" Width="25" />
+
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <td class="auto-style1" style="vertical-align: top; width: 150px; background-color: cornsilk; font-size: larger;">
+                    <asp:Menu ID="sidemenu" runat="server" ForeColor="Black" StaticMenuItemStyle-VerticalPadding="10px">
+                        <Items>
+                            <asp:MenuItem Text="Users " Value="Users" NavigateUrl="~/UI/modules/user/UserList.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Create User" Value="CreateUser" NavigateUrl="~/UI/modules/user/UserRegistration.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Products" Value="Products" NavigateUrl="~/UI/modules/Products/ProductList.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Create Product" NavigateUrl="~/UI/modules/Products/CreateProduct.aspx" Value="CreateProduct"></asp:MenuItem>
+                            <asp:MenuItem Text="Orders" Value="Orders" NavigateUrl="~/UI/modules/Orders/Orders.aspx"></asp:MenuItem>
+                        </Items>
+
+                    </asp:Menu>
+
+                </td>
+                <td colspan="2">
+                    <div style="width: 1000px">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+
+                <td colspan="3" style="align-content: center; height: 50px; background-color: grey; text-align: center">
+                    <span style="color: white;">Copy Rights Reservered @ infor 2021</span>
+                </td>
+            </tr>
+        </table>
+
+
+
+    </form>
+</body>
+</html>
