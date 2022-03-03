@@ -1,0 +1,55 @@
+<div class="mat-elevation-z9"><input
+        style="height: 50px;width:100% ;border: none; border-bottom: 3px solid rgb(5, 5, 34) ;" placeholder="Filter"
+        type="text" (keydown)="filter($event)">
+    <mat-table [dataSource]="datasource" matSort #usertable>
+        <ng-container matColumnDef="firstName">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>First Name
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.firstName|uppercase}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="secondName">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>Second Name
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.secondName|uppercase}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="phoneNumber">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>Phone Number
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.phoneNumber}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="emailId">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>Email Id
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.emailID}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="dob">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>Date Of Birth
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.dateOfBirth}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="address1">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>Address -1
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.address1}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="address2">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>Address -2
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{element.address2}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Actions">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                    <a (click)="updateUser(element.userID)" style="cursor: pointer;">
+                    <mat-icon color="primary">edit</mat-icon>
+                    </a>
+                </mat-cell>
+        </ng-container>
+        <ng-container>
+            <mat-header-row *matHeaderRowDef="userheader"></mat-header-row>
+            <mat-row *matRowDef="let row;columns:userheader"></mat-row>
+        </ng-container>
+    </mat-table>
+    <mat-paginator showFirstLastButtons length="10" [pageSizeOptions]="[5, 10, 20,50]"></mat-paginator>
+</div>

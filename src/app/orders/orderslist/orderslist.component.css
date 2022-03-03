@@ -1,0 +1,33 @@
+
+div{
+    margin:20px;
+    text-align: center;
+    width:150px;
+}
+.orderstatus{
+    font-size:medium;
+    font-weight: 500;
+}
+.values{
+    font-weight: 700;
+}
+.fail{
+    color: red;
+    font-style: oblique;
+}
+.pending{
+    color: orange;
+}
+.success{
+    color: green;
+}
+img{
+    height: 100px;
+    width: 100px;
+}
+mat-label{
+    padding: 20px;
+    margin: 20px;
+    font-weight: 700;
+    color: chocolate;
+}

@@ -1,0 +1,7 @@
+<span [ngClass]="{'darktheme':isDarkTheme}">
+    <span *ngIf="!username">
+        <mat-spinner mode="indeterminate" *ngIf="loader.httpinterceptor|async"></mat-spinner>
+    </span>
+    <app-master (isDarkmode)="isDarkTheme=$event" (clearsession)="username=$event" *ngIf="username"></app-master>
+    <app-login (addusername)="username=$event" *ngIf="!username"></app-login>
+</span>

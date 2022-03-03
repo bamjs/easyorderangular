@@ -1,0 +1,18 @@
+<button mat-raised-button color="warn" style="float: right;" (click)="addmoreproducts()">Add More Products</button>
+<span *ngFor="let item of wishListProducts">
+    <mat-card style="margin-top: 5px;width: 80%;">
+        <mat-card-title-group>
+            <mat-card-title>{{item.productName}}</mat-card-title>
+            <mat-card-subtitle>Price : {{item.productPrice}}</mat-card-subtitle>
+            <img src="../../../assets{{item.productImage}}" style="width: 100px;height:100px;">
+            <mat-card-actions>
+                <button mat-raised-button (click)="addtosavedlist(item.productID)" color="primary" style="margin-top:30px" > Add To Saved List<mat-icon>shopping_cart</mat-icon></button>
+            </mat-card-actions>
+        </mat-card-title-group>
+        <mat-card-content>{{item.productDescription}}</mat-card-content>
+    </mat-card>
+</span>
+<div *ngIf="isItemsCountZero">
+    <h1 style="text-align: center;">No Products In Your Saved List</h1>
+<img src="../../../assets/UploadedFiles/UI/noproducts.png" >
+</div>

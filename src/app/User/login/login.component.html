@@ -1,0 +1,68 @@
+<div class="loginform">
+    <mat-card *ngIf="isLogin">
+        <h2>Login Form</h2>
+        <!-- <img src="../../../assets/UploadedFiles/UI/infor.png" style="width: 100px;height:100px;text-align:center;margin-left:100px"> -->
+        <mat-card-content>
+            <form ngForm>
+                <mat-form-field appearance="outline">
+                    <mat-label>User Name</mat-label>
+                    <input matInput name="username" [(ngModel)]="username">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput name="password" [(ngModel)]="password">
+                </mat-form-field>
+
+                <br>
+                <button mat-raised-button (click)="forgotpassword()" color="warn">Change Password</button>
+                <button mat-raised-button (click)="validateUser()" color="primary"> Log In</button>
+                <br>
+                <button mat-raised-button style="margin-left: 100px;" (click)="registration()" color="accent">Create  Account</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <mat-card *ngIf="isForgotPassword">
+        <h2>Login Form</h2>
+        <!-- <img src="../../../assets/UploadedFiles/UI/infor.png" style="width: 100px;height:100px;text-align:center;margin-left:100px"> -->
+        <mat-card-content>
+            <form ngForm>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email ID</mat-label>
+                    <input matInput name="emailid" [(ngModel)]="emailid">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input  matInput name="phonenumber" [(ngModel)]="phonenumber">
+                </mat-form-field>
+
+                <br>
+                <button mat-raised-button (click)="checkuserstatus()" color="primary"> Verify </button>
+
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <mat-card *ngIf="isValidUser">
+        <h2>Login Form</h2>
+        <!-- <img src="../../../assets/UploadedFiles/UI/infor.png" style="width: 100px;height:100px;text-align:center;margin-left:100px"> -->
+        <mat-card-content>
+            <form ngForm>
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter Password</mat-label>
+                    <input matInput name="newPassword" [(ngModel)]="newPassword">
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline">
+                    <mat-label>Re Enter Password</mat-label>
+                    <input type="password" matInput name="verifypassword" [(ngModel)]="verifypassword">
+                </mat-form-field>
+
+                <br>
+                <button mat-raised-button (click)="changepassword()" color="primary"> Verify </button>
+
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+</div>

@@ -1,0 +1,48 @@
+<mat-form-field style="width: 300px;">
+    <mat-label>Select Payment Mode</mat-label>
+    <mat-select (selectionChange)="paymentmode($event)">
+        <mat-option value="card">Credit Card </mat-option>
+        <mat-option value="card">Debit Card </mat-option>
+        <mat-option value="cash">Cash </mat-option>
+    </mat-select>
+</mat-form-field>
+<br>
+<mat-form-field appearance="outline">
+    <mat-label>Email Id</mat-label>
+    <input matInput name="emailid" [(ngModel)]="emailid">
+</mat-form-field>
+<br>
+<div class="mat-elevation-z9" *ngIf="iscard" style="width:800px;margin: 25px;">
+    <mat-form-field appearance="outline">
+        <mat-label>
+            Card Number
+        </mat-label>
+        <input required type="number" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>
+            Name on the Card
+        </mat-label>
+        <input required type="text" matInput>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Expiry Month</mat-label>
+        <input required matInput type="number" maxLength="2">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Expiry year</mat-label>
+        <input required matInput type="number" maxLength="4">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>CVV</mat-label>
+        <input required matInput type="number" maxLength="4">
+    </mat-form-field>
+    <br>
+</div>
+<div style="float: right;">
+    <button mat-raised-button (click)="cancelpayment()" color="warn">Cancel Payment </button>
+    <button mat-raised-button (click)="makepayment()" color="primary">Make Payment </button>
+</div>

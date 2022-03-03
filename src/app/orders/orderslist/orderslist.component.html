@@ -1,0 +1,49 @@
+<mat-accordion *ngFor="let order of updatedOrders">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{order.orderID}}
+        <table>
+          <td>
+            <div class="orderstatus"
+              [ngClass]="{'success':order.status==='Payment Succesful','fail':order.status==='Payment Failed','pending':order.status==='Payment Started'}">
+              {{order.status}}</div>
+          </td>
+          <td>
+            <div>Quanity: <span class="values"> {{order.quantity}}</span></div>
+          </td>
+          <td>
+            <div>Total Ammount:<span class="values"> {{order.amount}}</span></div>
+          </td>
+        </table>
+      </mat-panel-title>
+      <mat-panel-description>
+        <div> Ordered Date <br>{{order.orderDate}}</div>
+      </mat-panel-description>
+
+
+    </mat-expansion-panel-header>
+    <span *ngFor="let quanity of quantitys">
+      <mat-card *ngFor="let product of order.productdetails">
+        <mat-card-header>
+          <mat-card-title style="text-align: center;"> {{product.productName}}</mat-card-title>
+
+            <mat-label>
+              {{"Rs : "+product.productPrice}}
+            </mat-label>
+            <mat-label>
+              Quanity : {{+quanity}}
+            </mat-label>
+            <mat-label>
+              Price :{{product.productPrice*(+quanity)}}
+            </mat-label>
+
+            <img src="{{'./assets/'+product.productImage}}">
+           <div style="margin-left: 20px;"> {{product.productDescription}}</div>
+        </mat-card-header>
+        <mat-card-actions>
+
+        </mat-card-actions>
+      </mat-card>
+    </span>
+  </mat-expansion-panel>
+</mat-accordion>

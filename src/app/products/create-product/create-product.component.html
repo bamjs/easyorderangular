@@ -1,0 +1,32 @@
+<h1>Add A Product</h1>
+
+<form ngForm #productForm="ngForm" (ngSubmit)="productsubmit(productForm);productForm.form.reset">
+<mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput name="name" ngModel [(ngModel)]="product.productName" >
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Price</mat-label>
+    <input type="number" name="price" ngModel matInput [(ngModel)]="product.productPrice" >
+</mat-form-field>
+<br>
+<mat-form-field appearance="outline">
+    <mat-label>Available Quantity</mat-label>
+    <input matInput name="availablequantity" ngModel [(ngModel)]="product.availableQuantity" >
+</mat-form-field>
+
+<br>
+<mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea style="height:5rem" matInput name="description" ngModel [(ngModel)]="product.productDescription" ></textarea>
+</mat-form-field>
+<div *ngIf="productID" style="border: 1px dotted rgba(65, 61, 61, 0.842);width: 350px;margin: 15px;border-radius: 10px;">
+<mat-label style="padding: 10px;font-weight: 700;">Image </mat-label>
+<img  src="../../../assets{{product.productImage}}" style="height: 100px;height:100px;margin-left: 50px;padding: 5px;" ></div>
+<input type="file" accept="image/png,image/gif,image/jpeg" required #image (change)="uploadImage($event)"><br>
+<p *ngIf="isuploaded">{{message}}</p>
+<p *ngIf="isError" style="color: red;">{{message}}</p>
+<br>
+<button type="submit" id="fileupload" mat-flat-button color="primary">Save</button>
+
+</form>

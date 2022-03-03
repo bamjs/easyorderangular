@@ -1,0 +1,53 @@
+<button mat-raised-button color="warn" (click)="clearsavedlist()" style="float: right;margin-left: 10px;">Clear Saved List<mat-icon>delete</mat-icon></button>
+<button mat-raised-button color="primary" style="float: right;" (click)="addmoreproducts()">Add More Products</button>
+<br>
+<br>
+<div *ngIf="!isNoProducts" class="mat-elevation-z9" style="width: 100%;">
+    <div *ngFor="let item of savedlistdeatils">
+        <mat-card>
+            <mat-card-title-group>
+                <mat-card-title>{{item.productName}}</mat-card-title>
+                <img style="width: 120px;height: 120px;" src="../../../assets{{item.productImage}}">
+                <mat-card-subtitle>Price : {{item.productPrice}}</mat-card-subtitle>
+                <mat-card-subtitle>Product Price : {{item.quantity * item.productPrice}}</mat-card-subtitle>
+                <mat-card-actions>
+                    <mat-card-subtitle>Quantity : {{item.quantity}}</mat-card-subtitle>
+                    <button color="warn" mat-raised-button (click)="addtowishlist(item.productID)">
+                        Add To Wish List
+                        <mat-icon>favorite_border</mat-icon>
+                    </button>
+                    <button style="margin-top: 30px;" (click)="removesavedlist(item.productID)" color="warn"
+                        mat-raised-button>
+                        <mat-icon>remove</mat-icon>
+                    </button>
+                    <button color="primary" (click)="addsavedlist(item.productID)" mat-raised-button>
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card-title-group>
+            <mat-card-content>{{item.productDescription}}</mat-card-content>
+        </mat-card>
+    </div>
+    <div>
+        <mat-label class="totalprice">Total Price : {{totalPrice}}</mat-label>
+        <br>
+        <br>
+        <button  (click)="placeOrder()" mat-raised-button
+            style="float: right;width: 200px;margin: 10px;height: 50px;" color="primary">Place Order <mat-icon>
+                shopping_cart_checkout
+            </mat-icon>
+        </button>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+<div *ngIf="isNoProducts">
+    <h1 style="text-align: center;"> No Products In Your Saved List</h1>
+    <img src="../../../assets/UploadedFiles/UI/nopoducts.jpg">
+</div>

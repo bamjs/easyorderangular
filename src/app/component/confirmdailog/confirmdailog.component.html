@@ -1,0 +1,9 @@
+<div style="height:fit-content;">
+    <h3 style="height: 30px;font-weight: 900;width: fit-content;text-align: center;">{{message+" ?"|titlecase}}</h3>
+    <div>
+        <button mat-raised-button color="warn" [mat-dialog-close]="false" value="false"
+            style="width: 48%;margin: 4px;">Cancel</button>
+        <button mat-raised-button color="primary" [mat-dialog-close]="true" value="true"
+            style="width: 48%;">Continue</button>
+    </div>
+</div>

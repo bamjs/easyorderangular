@@ -1,0 +1,12 @@
+mat-card{
+    margin: 5px;
+
+}
+mat-card-subtitle{
+    font-weight: 900;
+}
+.totalprice{
+    font-weight: bolder;text-align: center;float: right;margin-top:20px;
+    font-size: xx-large;
+
+}

@@ -1,0 +1,119 @@
+<div [hidden]="submitted" style="float: left;">
+    <form #createEmployee="ngForm" (ngSubmit)="onsubmit();createEmployee.resetForm();" ngForm>
+        <mat-form-field appearance="outline" style="width: 23rem;padding-left: 1rem;">
+            <mat-label>Full Name</mat-label>
+            <input name="employee" required matInput [(ngModel)]="employee.name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Date Of Joining</mat-label>
+            <input required name="date_of_joining" #date_of_joining="ngModel" matInput [matDatepicker]="pickerdoj"
+                [(ngModel)]="employee.date_of_joining">
+            <mat-datepicker-toggle matSuffix [for]="pickerdoj"></mat-datepicker-toggle>
+            <mat-datepicker startView="year" #pickerdoj></mat-datepicker>
+        </mat-form-field>
+        <small *ngIf="date_of_joining.invalid" class="text-danger">
+            Enter Details
+        </small>
+        <br>
+        <mat-form-field appearance="outline" style="width: 23rem; padding-left: 1rem;">
+            <mat-label>Job Title</mat-label>
+            <input required matInput [(ngModel)]="employee.title" name="job_title">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Date Of Birth</mat-label>
+            <input matInput required [(ngModel)]="employee.date_of_birth" name="date_of_birth" [matDatepicker]="pickerdob">
+            <mat-datepicker-toggle matSuffix [for]="pickerdob"></mat-datepicker-toggle>
+            <mat-datepicker #pickerdob startView="year"></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+            <label>Email ID</label>
+            <input required matInput  [(ngModel)]="employee.emailId" name="emailId">
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <label>Phone Number</label>
+            <input matInput required type="number" [(ngModel)]="employee.phoneNumber" name="phonnumber">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+            <label>Address</label>
+            <textarea required [(ngModel)]="employee.address" name="address" matInput matLine
+                style="height:80px ;">  </textarea>
+        </mat-form-field>
+        <br>
+        <div class="ActionButton">
+            <button mat-raised-button type="reset" (click)="cancelEvent()" color="warn">Cancel</button>
+            <button mat-raised-button [disabled]="!createEmployee.form.valid" type="submit" color="primary">
+                Save</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+<!-- <div [hidden]="submitted" style="float: right;">
+    <h2>You submitted The form </h2>
+    <table >
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                {{employee.name}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Title
+            </td>
+            <td>
+                {{employee.title}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Phone Number
+            </td>
+            <td>
+                {{employee.phoneNumber}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email Id
+            </td>
+            <td>
+                {{employee.emailId}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address
+            </td>
+            <td>
+                {{employee.address}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Date Of Joining
+            </td>
+            <td>
+                {{employee.date_of_joining|date:"shortDate"}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Date Of Birth
+            </td>
+            <td>
+                {{employee.date_of_birth|date:"shortDate"}}
+            </td>
+        </tr>
+    </table>
+</div> -->

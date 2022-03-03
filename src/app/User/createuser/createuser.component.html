@@ -1,0 +1,97 @@
+<button mat-raised-button color="warn" *ngIf="!isDailog" style="width: fit-content;margin-top: -5px;" (click)="dailogClose(closedailogbutton)">
+    <mat-icon color="primary">close</mat-icon>
+</button>
+<button  style="display:none;" mat-dialog-close #closedailogbutton></button>
+<div class="mat-elevation-z9 formfield">
+    <form  ngForm #createUser="ngForm" (ngSubmit)="onsubmit();createUser.form.reset">
+        <mat-stepper style="margin-top: 30px;">
+            <mat-step>
+                <ng-template matStepLabel> Fill Your Basic Details</ng-template>
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput required name="firstName" [(ngModel)]="user.firstName">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Second Name</mat-label>
+                    <input matInput required name="secondName" [(ngModel)]="user.secondName">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email ID</mat-label>
+                    <input matInput required name="emailID" [(ngModel)]="user.emailID">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput required name="phoneNumber" [(ngModel)]="user.phoneNumber">
+                </mat-form-field>
+                <br>
+                <button mat-raised-button color="primary" type="button" matStepperNext>Next</button>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel> Fill Your Personal Details</ng-template>
+                <mat-form-field appearance="outline">
+                    <mat-label>Salary</mat-label>
+                    <input matInput name="salary" [(ngModel)]="user.salary">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label> Age</mat-label>
+                    <input matInput name="age" [(ngModel)]="user.age">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Primary Address </mat-label>
+                    <textarea matInput required name="address1" [(ngModel)]="user.address1"></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Secondary Address </mat-label>
+                    <textarea matInput name="address2" [(ngModel)]="user.address2"></textarea>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label> Date Of Birth</mat-label>
+                    <input matInput name="age" [matDatepicker]="datepicker" [(ngModel)]="user.dateOfBirth">
+                    <mat-datepicker required startAt="year" #datepicker></mat-datepicker>
+                    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                </mat-form-field>
+                <br>
+                <mat-radio-group required style="height: 50px;width: 200px;" [(ngModel)]="user.gender" name="gender">
+                    <mat-radio-button value="Male"> Male</mat-radio-button>
+                    <mat-radio-button value="Female"> Female</mat-radio-button>
+                </mat-radio-group>
+                <br>
+
+                <button mat-raised-button color="primary" type="button" matStepperNext>Next</button>
+                <button mat-raised-button color="accent" type="button" matStepperPrevious>Previous</button>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel> Fill Your Account Details</ng-template>
+                <mat-form-field appearance="outline">
+                    <mat-label>User Name </mat-label>
+                    <input matInput name="userName" required [(ngModel)]="user.userName">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput required type="password" name="password" [(ngModel)]="user.password">
+                </mat-form-field>
+                <br>
+                <mat-radio-group required [(ngModel)]="user.userType" (change)="isVendor()" name="userType">
+                    <mat-radio-button value="Vendor">Vendor </mat-radio-button>
+                    <mat-radio-button value="Customer">Customer </mat-radio-button>
+                </mat-radio-group>
+                <br>
+                <mat-form-field *ngIf="isvendor" appearance="outline">
+                    <mat-label>Gst Number</mat-label>
+                    <input matInput type="gstnumber" name="gstnumber" [(ngModel)]="user.gstnumber">
+                </mat-form-field>
+                <br>
+                <mat-checkbox value="True" required color="primary"  [(ngModel)]="user.termsAndConditions"
+                    name="termsAndConditions">
+                    Terms
+                    & Condition</mat-checkbox>
+                <section>
+                    <button mat-raised-button [disabled]="!createUser.form.valid" type="submit"
+                        color="primary">Register</button>
+                    <button mat-raised-button (click)="reset(createUser)" type="button" color="warn">Reset</button>
+                </section>
+            </mat-step>
+        </mat-stepper>
+    </form>
+</div>

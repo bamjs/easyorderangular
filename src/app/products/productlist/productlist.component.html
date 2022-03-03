@@ -1,0 +1,35 @@
+<mat-grid-list cols="3" rowHeight="1:1.2">
+    <span *ngFor="let product of products">
+        <mat-grid-tile>
+            <mat-card>
+                <mat-card-header>
+
+                    <mat-card-title style="text-align: center;"><div style="float: left;width: 200px;">
+                        {{product.productName}}
+                    </div>
+                    <div *ngIf="isVendor" style="float: right;">
+                        <a (click)="editproduct(product.id)" ><mat-icon  class="vendoractions">edit</mat-icon></a>
+                        <a (click)="deleteproduct(product)"><mat-icon  color="warn">delete</mat-icon></a>
+                    </div>
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{"Rs "+product.productPrice}}
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <img src="{{'./assets/'+product.productImage}}">
+                <mat-card-content>
+                    {{product.productDescription}}
+                </mat-card-content>
+                <mat-card-actions>
+                    <button [value]="product.id" (click)="addtocart(product)" mat-raised-button color="primary">Add To
+                        Cart <mat-icon>add_shopping_cart</mat-icon></button>
+                    <button [value]="product.id" (click)="addtowishlist(product)" mat-raised-button color="accent">Add
+                        To
+                        <mat-icon>favorite</mat-icon> List
+                    </button>
+                </mat-card-actions>
+                <mat-label >{{message}}</mat-label>
+            </mat-card>
+        </mat-grid-tile>
+    </span>
+</mat-grid-list>
